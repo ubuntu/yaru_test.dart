@@ -15,8 +15,10 @@ dependencies:
   flutter_svg: ^2.0.5
   flutter_test:
     sdk: flutter
+  meta: ^1.8.0
   yaru: ^0.7.0
   yaru_widgets: ^2.4.1
+  yaru_window_platform_interface: ^0.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
