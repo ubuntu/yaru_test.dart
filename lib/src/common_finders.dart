@@ -50,6 +50,11 @@ extension YaruCommonFinders on CommonFinders {
     return widgetWithText(ListTile, text, skipOffstage: skipOffstage);
   }
 
+  /// Finds [MenuItemButton] by [text].
+  Finder menuItem(String text, {bool skipOffstage = true}) {
+    return widgetWithText(MenuItemButton, text, skipOffstage: skipOffstage);
+  }
+
   /// Finds [Radio] or [YaruRadio] by [value].
   Finder radio<T>(T value, {bool skipOffstage = true}) {
     return byWidgetPredicate(
