@@ -94,4 +94,53 @@ void main() {
     expect(switchButton, testState.isChecked ? isChecked : isNotChecked);
     expect(switchButton, testState.isEnabled ? isEnabled : isDisabled);
   }, variant: togglableStateVariant);
+
+  testWidgets('toggle', (tester) async {
+    final values = [false, false, false];
+
+    await tester.pumpTestApp(StatefulBuilder(builder: (context, setState) {
+      return Column(
+        children: [
+          YaruCheckButton(
+            value: values[0],
+            onChanged: (v) => setState(() => values[0] = v!),
+            title: const Text('check button'),
+          ),
+          YaruRadioButton<bool>(
+            value: values[1],
+            groupValue: true,
+            onChanged: (v) => setState(() => values[1] = !v!),
+            title: const Text('radio button'),
+          ),
+          YaruSwitchButton(
+            value: values[2],
+            onChanged: (v) => setState(() => values[2] = v),
+            title: const Text('switch button'),
+          ),
+        ],
+      );
+    }));
+    await tester.pump();
+
+    final checkButton = find.checkButton('check button');
+    expect(checkButton, isNotChecked);
+
+    await tester.toggle(checkButton, true);
+    await tester.pump();
+    expect(checkButton, isChecked);
+
+    final radioButton = find.radioButton<bool>('radio button');
+    expect(radioButton, isNotChecked);
+
+    await tester.toggle(radioButton, true);
+    await tester.pump();
+    expect(radioButton, isChecked);
+
+    final switchButton = find.switchButton('switch button');
+    expect(switchButton, isNotChecked);
+
+    await tester.toggle(switchButton, true);
+    await tester.pump();
+    expect(switchButton, isChecked);
+  });
 }

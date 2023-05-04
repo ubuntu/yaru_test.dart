@@ -1,8 +1,17 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yaru/yaru.dart';
 
+import 'custom_matchers.dart';
+
 extension YaruWidgetTester on WidgetTester {
+  /// Toggles a [finder] to ensure the given [value].
+  Future<void> toggle(Finder finder, bool value) async {
+    if (isChecked.matches(finder, {}) != value) {
+      return tap(finder);
+    }
+  }
+
   /// Same as [pumpWidget] plus wraps [widget] with [YaruTheme].
   Future<void> pumpYaruWidget(
     Widget widget, {
