@@ -19,4 +19,33 @@ extension YaruWidgetTester on WidgetTester {
       phase,
     );
   }
+
+  /// Pumps until the specified [finder] is satisfied. This can be used to wait
+  /// until a certain page or widget becomes visible.
+  Future<void> pumpUntil(
+    Finder finder, [
+    Duration timeout = const Duration(seconds: 10),
+  ]) async {
+    assert(timeout.inMilliseconds >= 250);
+    const delay = Duration(milliseconds: 250);
+
+    if (any(finder)) return;
+
+    Future? future;
+    return Future.doWhile(() async {
+      if (any(finder)) return false;
+      future = pump(delay);
+      await future;
+      return true;
+    }).timeout(
+      timeout,
+      onTimeout: () async {
+        // Ensures the `pump(delay)` future is awaited even on timeout to prevent
+        // `FlutterGuardedError`s.
+        await future;
+        debugPrint(
+            '\nWARNING: A call to pumpUntil() with finder "$finder" did not complete within the specified timeout $timeout.\n${StackTrace.current}');
+      },
+    );
+  }
 }
