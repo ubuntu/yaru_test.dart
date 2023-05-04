@@ -7,22 +7,6 @@ import 'package:yaru_test/yaru_test.dart';
 import 'test_utils.dart';
 
 void main() {
-  testWidgets('find any', (tester) async {
-    await tester.pumpTestApp(Column(
-      children: const [
-        Text('foo'),
-        Text('bar'),
-        Text('baz'),
-      ],
-    ));
-
-    expect(find.any([find.text('foo')]), findsOneWidget);
-    expect(find.any([find.text('bar')]), findsOneWidget);
-    expect(find.any([find.text('foo'), find.text('baz'), find.text('qux')]),
-        findsNWidgets(2));
-    expect(find.any([find.text('qux')]), findsNothing);
-  });
-
   testWidgets('image asset', (tester) async {
     await tester.pumpTestApp(Image.asset('assets/test.png'));
     expect(find.asset('assets/test.png'), findsOneWidget);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:yaru_test/yaru_test.dart';
+import 'package:yaru/yaru.dart';
 
 class MaterialTestState {
   const MaterialTestState(this.name, this.states);
@@ -38,6 +38,9 @@ final partiallyTogglableStateVariant = ValueVariant({
 
 extension WidgetTesterX on WidgetTester {
   Future<void> pumpTestApp(Widget widget) {
-    return pumpYaruWidget(MaterialApp(home: Material(child: widget)));
+    return pumpWidget(MaterialApp(
+      theme: yaruLight,
+      home: Material(child: widget),
+    ));
   }
 }

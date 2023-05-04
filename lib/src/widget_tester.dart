@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:yaru/yaru.dart';
 
 import 'custom_matchers.dart';
 
@@ -10,23 +9,6 @@ extension YaruWidgetTester on WidgetTester {
     if (isChecked.matches(finder, {}) != value) {
       return tap(finder);
     }
-  }
-
-  /// Same as [pumpWidget] plus wraps [widget] with [YaruTheme].
-  Future<void> pumpYaruWidget(
-    Widget widget, {
-    YaruThemeData? theme,
-    Duration? duration,
-    EnginePhase phase = EnginePhase.sendSemanticsUpdate,
-  }) {
-    return pumpWidget(
-      YaruTheme(
-        data: theme ?? const YaruThemeData(),
-        child: widget,
-      ),
-      duration,
-      phase,
-    );
   }
 
   /// Pumps until the specified [finder] is satisfied. This can be used to wait

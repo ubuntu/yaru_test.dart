@@ -5,9 +5,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 extension YaruCommonFinders on CommonFinders {
-  /// Finds elements that match any given [matchers].
-  Finder any(List<Finder> matchers) => _AnyFinder(matchers);
-
   /// Finds [Image] by [assetName].
   Finder asset(String assetName) {
     return byWidgetPredicate((w) =>
@@ -38,10 +35,7 @@ extension YaruCommonFinders on CommonFinders {
   Finder iconButton(IconData icon, {bool skipOffstage = true}) {
     return ancestor(
       of: byIcon(icon, skipOffstage: skipOffstage),
-      matching: any([
-        bySubtype<ButtonStyleButton>(skipOffstage: skipOffstage),
-        bySubtype<IconButton>(skipOffstage: skipOffstage),
-      ]),
+      matching: bySubtype<ButtonStyleButton>(skipOffstage: skipOffstage),
     );
   }
 
@@ -86,19 +80,5 @@ extension YaruCommonFinders on CommonFinders {
   /// Finds [TextField] by [text] (or hint/label).
   Finder textField(String text, {bool skipOffstage = true}) {
     return widgetWithText(TextField, text, skipOffstage: skipOffstage);
-  }
-}
-
-class _AnyFinder extends Finder {
-  _AnyFinder(List<Finder> matchers) : matchers = matchers.cast();
-
-  final List<MatchFinder> matchers;
-
-  @override
-  String get description => 'matches any $matchers';
-
-  @override
-  Iterable<Element> apply(Iterable<Element> candidates) {
-    return candidates.where((c) => matchers.any((f) => f.matches(c)));
   }
 }
