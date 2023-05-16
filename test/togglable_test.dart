@@ -125,21 +125,21 @@ void main() {
     final checkButton = find.checkButton('check button');
     expect(checkButton, isNotChecked);
 
-    await tester.toggle(checkButton, true);
+    await tester.toggleButton('check button', true);
     await tester.pump();
     expect(checkButton, isChecked);
 
     final radioButton = find.radioButton<bool>('radio button');
     expect(radioButton, isNotChecked);
 
-    await tester.toggle(radioButton, true);
+    await tester.tapRadio(false);
     await tester.pump();
     expect(radioButton, isChecked);
 
     final switchButton = find.switchButton('switch button');
     expect(switchButton, isNotChecked);
 
-    await tester.toggle(switchButton, true);
+    await tester.toggleButton('switch button', true);
     await tester.pump();
     expect(switchButton, isChecked);
   });

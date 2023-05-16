@@ -81,4 +81,12 @@ extension YaruCommonFinders on CommonFinders {
   Finder textField(String text, {bool skipOffstage = true}) {
     return widgetWithText(TextField, text, skipOffstage: skipOffstage);
   }
+
+  /// Finds [YaruToggleButton] by [text].
+  Finder toggleButton(String text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: this.text(text, skipOffstage: skipOffstage),
+      matching: bySubtype<YaruToggleButton>(skipOffstage: skipOffstage),
+    );
+  }
 }
