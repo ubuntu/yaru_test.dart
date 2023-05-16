@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 // TODO: expose YaruTogglable for testing
@@ -24,6 +26,9 @@ final isNotChecked = _IsCheckedMatcher(false);
 
 /// Matches a partially checked (togglable) widget.
 final isPartiallyChecked = _IsCheckedMatcher(null);
+
+/// Matches a text file.
+Matcher matchesTextFile(String path) => _TextFileMatcher(path);
 
 class _IsCheckedMatcher extends CustomMatcher {
   _IsCheckedMatcher(bool? value)
@@ -84,5 +89,16 @@ class _HasFocusMatcher extends CustomMatcher {
         .evaluate()
         .map((e) => e.widget as Focus);
     return focusables.any((f) => f.focusNode?.hasFocus == true);
+  }
+}
+
+class _TextFileMatcher extends CustomMatcher {
+  _TextFileMatcher(String path)
+      : super('Text file matches', 'path',
+            equals(File(path).readAsStringSync().trim()));
+
+  @override
+  Object featureValueOf(covariant String path) {
+    return File(path).readAsStringSync().trim();
   }
 }
