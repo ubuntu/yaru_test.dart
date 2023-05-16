@@ -34,6 +34,55 @@ void main() async {
     expect(tester.al10n.testLabel, 'test');
     expect(find.text(tester.al10n.testLabel), findsOneWidget);
   });
+
+  testWidgets('tap buttons', (tester) async {
+    const labels = [
+      'Back',
+      'Cancel',
+      'Close',
+      'Continue',
+      'Next',
+      'OK',
+      'Previous',
+    ];
+
+    final actual = <String>[];
+    final expected = <String>[];
+
+    await tester.pumpWidget(MaterialApp(
+      localizationsDelegates: UbuntuLocalizations.localizationsDelegates,
+      home: Column(
+        children: [
+          for (final label in labels)
+            ElevatedButton(
+              child: Text(label),
+              onPressed: () => actual.add(label),
+            ),
+        ],
+      ),
+    ));
+
+    await tester.tapBack();
+    expect(actual, expected..add(tester.ul10n.backLabel));
+
+    await tester.tapCancel();
+    expect(actual, expected..add(tester.ul10n.cancelLabel));
+
+    await tester.tapClose();
+    expect(actual, expected..add(tester.ul10n.closeLabel));
+
+    await tester.tapContinue();
+    expect(actual, expected..add(tester.ul10n.continueLabel));
+
+    await tester.tapNext();
+    expect(actual, expected..add(tester.ul10n.nextLabel));
+
+    await tester.tapOk();
+    expect(actual, expected..add(tester.ul10n.okLabel));
+
+    await tester.tapPrevious();
+    expect(actual, expected..add(tester.ul10n.previousLabel));
+  });
 }
 
 class AppLocalizations {

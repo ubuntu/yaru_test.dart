@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ubuntu_localizations/ubuntu_localizations.dart';
 
+import 'common_finders.dart';
 import 'custom_matchers.dart';
 
 final _localizations = <Type, Object>{};
@@ -45,12 +46,26 @@ Pump a widget tree with `LocalizationsDelegate<$T>` before calling
     return l10n;
   }
 
-  /// Toggles a [finder] to ensure the given [value].
-  Future<void> toggle(Finder finder, bool value) async {
-    if (isChecked.matches(finder, {}) != value) {
-      return tap(finder);
-    }
-  }
+  /// Taps a _Back_ button.
+  Future<void> tapBack() => tap(find.button(ul10n.backLabel));
+
+  /// Taps a _Cancel_ button.
+  Future<void> tapCancel() => tap(find.button(ul10n.cancelLabel));
+
+  /// Taps a _Close_ button.
+  Future<void> tapClose() => tap(find.button(ul10n.closeLabel));
+
+  /// Taps a _Continue_ button.
+  Future<void> tapContinue() => tap(find.button(ul10n.continueLabel));
+
+  /// Taps a _Next_ button.
+  Future<void> tapNext() => tap(find.button(ul10n.nextLabel));
+
+  /// Taps an _Ok_ button.
+  Future<void> tapOk() => tap(find.button(ul10n.okLabel));
+
+  /// Taps a _Previous_ button.
+  Future<void> tapPrevious() => tap(find.button(ul10n.previousLabel));
 
   /// Taps a link with the given [label].
   Future<void> tapLink(String label) async {
@@ -64,6 +79,13 @@ Pump a widget tree with `LocalizationsDelegate<$T>` before calling
       }
       return false;
     }), findsOneWidget);
+  }
+
+  /// Toggles a [finder] to ensure the given [value].
+  Future<void> toggle(Finder finder, bool value) async {
+    if (isChecked.matches(finder, {}) != value) {
+      return tap(finder);
+    }
   }
 
   /// Pumps until the specified [finder] is satisfied. This can be used to wait
