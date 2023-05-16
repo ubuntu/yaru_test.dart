@@ -16,7 +16,6 @@ dependencies:
   flutter_test:
     sdk: flutter
   meta: ^1.8.0
-  ubuntu_localizations: ^0.1.6
   yaru: ^0.7.0
   yaru_widgets: ^2.4.1
   yaru_window_platform_interface: ^0.1.0
