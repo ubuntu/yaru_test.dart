@@ -15,9 +15,11 @@ void main() {
     }
     addTearDown(focusNode.dispose);
 
+    var wasPressed = 0;
+
     await tester.pumpTestApp(ElevatedButton(
       focusNode: focusNode,
-      onPressed: testState.isEnabled ? () {} : null,
+      onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('elevated'),
     ));
     await tester.pump();
@@ -26,6 +28,9 @@ void main() {
     expect(button, findsOneWidget);
     expect(button, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(button, testState.isEnabled ? isEnabled : isDisabled);
+
+    await tester.tapButton('elevated');
+    expect(wasPressed, testState.isEnabled ? 1 : 0);
   }, variant: stateVariant);
 
   testWidgets('filled button', (tester) async {
@@ -37,9 +42,11 @@ void main() {
     }
     addTearDown(focusNode.dispose);
 
+    var wasPressed = 0;
+
     await tester.pumpTestApp(FilledButton(
       focusNode: focusNode,
-      onPressed: testState.isEnabled ? () {} : null,
+      onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('filled'),
     ));
     await tester.pump();
@@ -48,6 +55,9 @@ void main() {
     expect(button, findsOneWidget);
     expect(button, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(button, testState.isEnabled ? isEnabled : isDisabled);
+
+    await tester.tapButton('filled');
+    expect(wasPressed, testState.isEnabled ? 1 : 0);
   }, variant: stateVariant);
 
   testWidgets('icon button', (tester) async {
@@ -103,9 +113,11 @@ void main() {
     }
     addTearDown(focusNode.dispose);
 
+    var wasPressed = 0;
+
     await tester.pumpTestApp(YaruOptionButton(
       focusNode: focusNode,
-      onPressed: testState.isEnabled ? () {} : null,
+      onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('option'),
     ));
     await tester.pump();
@@ -114,6 +126,9 @@ void main() {
     expect(button, findsOneWidget);
     expect(button, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(button, testState.isEnabled ? isEnabled : isDisabled);
+
+    await tester.tapButton('option');
+    expect(wasPressed, testState.isEnabled ? 1 : 0);
   }, variant: stateVariant);
 
   testWidgets('outlined button', (tester) async {
@@ -125,9 +140,11 @@ void main() {
     }
     addTearDown(focusNode.dispose);
 
+    var wasPressed = 0;
+
     await tester.pumpTestApp(OutlinedButton(
       focusNode: focusNode,
-      onPressed: testState.isEnabled ? () {} : null,
+      onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('outlined'),
     ));
     await tester.pump();
@@ -136,6 +153,9 @@ void main() {
     expect(button, findsOneWidget);
     expect(button, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(button, testState.isEnabled ? isEnabled : isDisabled);
+
+    await tester.tapButton('outlined');
+    expect(wasPressed, testState.isEnabled ? 1 : 0);
   }, variant: stateVariant);
 
   testWidgets('text button', (tester) async {
@@ -147,9 +167,11 @@ void main() {
     }
     addTearDown(focusNode.dispose);
 
+    var wasPressed = 0;
+
     await tester.pumpTestApp(TextButton(
       focusNode: focusNode,
-      onPressed: testState.isEnabled ? () {} : null,
+      onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('text'),
     ));
     await tester.pump();
@@ -158,5 +180,8 @@ void main() {
     expect(button, findsOneWidget);
     expect(button, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(button, testState.isEnabled ? isEnabled : isDisabled);
+
+    await tester.tapButton('text');
+    expect(wasPressed, testState.isEnabled ? 1 : 0);
   }, variant: stateVariant);
 }
