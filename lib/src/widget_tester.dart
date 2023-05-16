@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -9,6 +10,20 @@ extension YaruWidgetTester on WidgetTester {
     if (isChecked.matches(finder, {}) != value) {
       return tap(finder);
     }
+  }
+
+  /// Taps a link with the given [label].
+  Future<void> tapLink(String label) async {
+    expect(find.byWidgetPredicate((widget) {
+      if (widget is RichText) {
+        final link = widget.findLink(label);
+        if (link != null) {
+          (link.recognizer as TapGestureRecognizer).onTap!();
+          return true;
+        }
+      }
+      return false;
+    }), findsOneWidget);
   }
 
   /// Pumps until the specified [finder] is satisfied. This can be used to wait
@@ -38,5 +53,20 @@ extension YaruWidgetTester on WidgetTester {
             '\nWARNING: A call to pumpUntil() with finder "$finder" did not complete within the specified timeout $timeout.\n${StackTrace.current}');
       },
     );
+  }
+}
+
+extension on RichText {
+  TextSpan? findLink(String label) {
+    TextSpan? span;
+    text.visitChildren((child) {
+      if (child is TextSpan &&
+          child.text == label &&
+          child.recognizer is TapGestureRecognizer) {
+        span = child;
+      }
+      return span == null;
+    });
+    return span;
   }
 }
