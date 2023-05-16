@@ -1,10 +1,50 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ubuntu_localizations/ubuntu_localizations.dart';
 
 import 'custom_matchers.dart';
 
+final _localizations = <Type, Object>{};
+
 extension YaruWidgetTester on WidgetTester {
+  /// The [UbuntuLocalizations] instance.
+  UbuntuLocalizations get ul10n =>
+      localizations<UbuntuLocalizations>(UbuntuLocalizations);
+
+  T localizations<T>(Type type) {
+    if (_localizations.containsKey(T)) return _localizations[T] as T;
+
+    final result = find.byWidgetPredicate((widget) {
+      final context = element(find.byWidget(widget));
+      return Localizations.of<T>(context, type) != null;
+    });
+
+    if (result.evaluate().isEmpty) {
+      throw StateError('''
+No $T found in the widget tree.
+
+Pump a widget tree with `LocalizationsDelegate<$T>` before calling
+`YaruWidgetTester.findLocalizations<$T>()`. For example:
+
+  await tester.pumpWidget(
+    MaterialApp(
+      localizationsDelegates: $T.localizationsDelegates,
+      home: ...
+    ),
+  );
+
+  final l10n = tester.localizations<$T>();
+  expect(find.text(l10n.fooLabel), findsOneWidget);
+''');
+    }
+
+    final l10n = Localizations.of(element(result.first), T)!;
+    _localizations[T] = l10n;
+    if (_localizations.length == 1) addTearDown(_localizations.clear);
+    return l10n;
+  }
+
   /// Toggles a [finder] to ensure the given [value].
   Future<void> toggle(Finder finder, bool value) async {
     if (isChecked.matches(finder, {}) != value) {
