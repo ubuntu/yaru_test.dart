@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 // TODO: expose YaruTogglable for testing
-// ignore: implementation_imports
-import 'package:yaru_widgets/src/widgets/yaru_togglable.dart';
+import 'package:yaru_widgets/src/widgets/yaru_togglable.dart'; // ignore: implementation_imports
 
 /// Matches a focused (focusable) widget.
 final hasFocus = _HasFocusMatcher(true);

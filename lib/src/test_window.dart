@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:meta/meta.dart';
 import 'package:yaru_window_platform_interface/yaru_window_platform_interface.dart';
 
-@visibleForTesting
+/// An implementation of [YaruWindowPlatform] for testing.
 class YaruTestWindow extends YaruWindowPlatform {
+  /// Initializes the window for testing. A specific [state] can be overridden
+  /// and it is safe to close the window without actually closing it.
   static Future<void> ensureInitialized({YaruWindowState? state}) async {
     _state = state;
     _platform ??= YaruWindowPlatform.instance;
@@ -14,6 +15,7 @@ class YaruTestWindow extends YaruWindowPlatform {
     }
   }
 
+  /// Waits until the window was (pretended to be) closed.
   static Future<void> waitForClosed() async {
     final window = YaruWindowPlatform.instance;
     assert(window is YaruTestWindow, 'Call YaruTestWindow.ensureInitialized');

@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'common_finders.dart';
 import 'custom_matchers.dart';
 
+/// Convenient high-level widget tester extensions for buttons and alike.
 extension YaruWidgetTester on WidgetTester {
   /// Taps a button specified by its [text].
   Future<void> tapButton(String text) => tap(find.button(text));

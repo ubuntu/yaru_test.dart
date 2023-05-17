@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
+/// Convenient high-level common finder extensions for buttons and alike.
 extension YaruCommonFinders on CommonFinders {
   /// Finds [Image] by [assetName].
   Finder asset(String assetName) {
@@ -31,7 +32,7 @@ extension YaruCommonFinders on CommonFinders {
     return byWidgetPredicate((w) => w is Html && w.data == data);
   }
 
-  /// Finds any [IconButton] or [ButtonStyleButton] by [icon].
+  /// Finds [ButtonStyleButton] by [icon].
   Finder iconButton(IconData icon, {bool skipOffstage = true}) {
     return ancestor(
       of: byIcon(icon, skipOffstage: skipOffstage),
