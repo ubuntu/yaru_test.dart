@@ -28,6 +28,9 @@ void main() {
     ));
     await tester.pump();
 
+    expect(find.checkButton('check button'), findsOneWidget);
+    expect(find.checkButton(find.text('check button')), findsOneWidget);
+
     final checkButton = find.checkButton('check button');
     expect(checkButton, findsOneWidget);
     expect(checkButton, testState.hasFocus ? hasFocus : hasNoFocus);
@@ -61,8 +64,10 @@ void main() {
     ));
     await tester.pump();
 
-    final radio = find.radio<Brightness>(value);
-    expect(radio, findsOneWidget);
+    expect(find.radio<Brightness>(value), findsOneWidget);
+    expect(find.radioButton<Brightness>('radio button'), findsOneWidget);
+    expect(find.radioButton<Brightness>(find.text('radio button')),
+        findsOneWidget);
 
     final radioButton = find.radioButton<Brightness>('radio button');
     expect(radioButton, findsOneWidget);
@@ -87,6 +92,9 @@ void main() {
       title: const Text('switch button'),
     ));
     await tester.pump();
+
+    expect(find.switchButton('switch button'), findsOneWidget);
+    expect(find.switchButton(find.text('switch button')), findsOneWidget);
 
     final switchButton = find.switchButton('switch button');
     expect(switchButton, findsOneWidget);

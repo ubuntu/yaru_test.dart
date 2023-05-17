@@ -18,6 +18,7 @@ void main() {
     expect(find.textField('hint text'), findsOneWidget);
     expect(find.textField('label text'), findsOneWidget);
     expect(find.textField('nothing'), findsNothing);
+    expect(find.textField(find.textContaining('text')), findsNWidgets(3));
   });
 
   testWidgets('match text field', (tester) async {

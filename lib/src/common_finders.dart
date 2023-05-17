@@ -15,16 +15,19 @@ extension YaruCommonFinders on CommonFinders {
   }
 
   /// Finds any [ButtonStyleButton] by [text].
-  Finder button(String text, {bool skipOffstage = true}) {
+  Finder button(dynamic text, {bool skipOffstage = true}) {
     return ancestor(
-      of: this.text(text, skipOffstage: skipOffstage),
+      of: _textOrFinder(text, skipOffstage),
       matching: bySubtype<ButtonStyleButton>(skipOffstage: skipOffstage),
     );
   }
 
   /// Finds [YaruCheckButton] by [text].
-  Finder checkButton(String text, {bool skipOffstage = true}) {
-    return widgetWithText(YaruCheckButton, text, skipOffstage: skipOffstage);
+  Finder checkButton(dynamic text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: _textOrFinder(text, skipOffstage),
+      matching: byType(YaruCheckButton, skipOffstage: skipOffstage),
+    );
   }
 
   /// Finds [Html] by [data].
@@ -41,13 +44,19 @@ extension YaruCommonFinders on CommonFinders {
   }
 
   /// Finds [ListTile] by [text].
-  Finder listTile(String text, {bool skipOffstage = true}) {
-    return widgetWithText(ListTile, text, skipOffstage: skipOffstage);
+  Finder listTile(dynamic text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: _textOrFinder(text, skipOffstage),
+      matching: byType(ListTile, skipOffstage: skipOffstage),
+    );
   }
 
   /// Finds [MenuItemButton] by [text].
-  Finder menuItem(String text, {bool skipOffstage = true}) {
-    return widgetWithText(MenuItemButton, text, skipOffstage: skipOffstage);
+  Finder menuItem(dynamic text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: _textOrFinder(text, skipOffstage),
+      matching: byType(MenuItemButton, skipOffstage: skipOffstage),
+    );
   }
 
   /// Finds [Radio] or [YaruRadio] by [value].
@@ -61,8 +70,11 @@ extension YaruCommonFinders on CommonFinders {
   }
 
   /// Finds [YaruRadioButton] by [text].
-  Finder radioButton<T>(String text, {bool skipOffstage = true}) {
-    return widgetWithText(YaruRadioButton<T>, text, skipOffstage: skipOffstage);
+  Finder radioButton<T>(dynamic text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: _textOrFinder(text, skipOffstage),
+      matching: byType(YaruRadioButton<T>, skipOffstage: skipOffstage),
+    );
   }
 
   /// Finds [SvgPicture] by [assetName].
@@ -74,20 +86,32 @@ extension YaruCommonFinders on CommonFinders {
   }
 
   /// Finds [YaruSwitchButton] by [text].
-  Finder switchButton(String text, {bool skipOffstage = true}) {
-    return widgetWithText(YaruSwitchButton, text, skipOffstage: skipOffstage);
+  Finder switchButton(dynamic text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: _textOrFinder(text, skipOffstage),
+      matching: byType(YaruSwitchButton, skipOffstage: skipOffstage),
+    );
   }
 
   /// Finds [TextField] by [text] (or hint/label).
-  Finder textField(String text, {bool skipOffstage = true}) {
-    return widgetWithText(TextField, text, skipOffstage: skipOffstage);
+  Finder textField(dynamic text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: _textOrFinder(text, skipOffstage),
+      matching: byType(TextField, skipOffstage: skipOffstage),
+    );
   }
 
   /// Finds [YaruToggleButton] by [text].
-  Finder toggleButton(String text, {bool skipOffstage = true}) {
+  Finder toggleButton(dynamic text, {bool skipOffstage = true}) {
     return ancestor(
-      of: this.text(text, skipOffstage: skipOffstage),
+      of: _textOrFinder(text, skipOffstage),
       matching: bySubtype<YaruToggleButton>(skipOffstage: skipOffstage),
     );
+  }
+
+  Finder _textOrFinder(dynamic text, bool skipOffstage) {
+    return text is String
+        ? find.text(text, skipOffstage: skipOffstage)
+        : text as Finder;
   }
 }
