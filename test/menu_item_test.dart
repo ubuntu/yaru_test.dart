@@ -21,6 +21,9 @@ void main() {
     ));
     await tester.pump();
 
+    expect(find.menuItem('menu item'), findsOneWidget);
+    expect(find.menuItem(find.text('menu item')), findsOneWidget);
+
     final menuItem = find.menuItem('menu item');
     expect(menuItem, findsOneWidget);
     expect(menuItem, testState.hasFocus ? hasFocus : hasNoFocus);

@@ -21,6 +21,9 @@ void main() {
     ));
     await tester.pump();
 
+    expect(find.listTile('list tile'), findsOneWidget);
+    expect(find.listTile(find.text('list tile')), findsOneWidget);
+
     final listTile = find.listTile('list tile');
     expect(listTile, findsOneWidget);
     expect(listTile, testState.hasFocus ? hasFocus : hasNoFocus);

@@ -31,6 +31,9 @@ void main() {
 
     await tester.tapButton('elevated');
     expect(wasPressed, testState.isEnabled ? 1 : 0);
+
+    await tester.tapButton(find.text('elevated'));
+    expect(wasPressed, testState.isEnabled ? 2 : 0);
   }, variant: stateVariant);
 
   testWidgets('filled button', (tester) async {
@@ -58,6 +61,9 @@ void main() {
 
     await tester.tapButton('filled');
     expect(wasPressed, testState.isEnabled ? 1 : 0);
+
+    await tester.tapButton(find.text('filled'));
+    expect(wasPressed, testState.isEnabled ? 2 : 0);
   }, variant: stateVariant);
 
   testWidgets('icon button', (tester) async {
@@ -129,6 +135,9 @@ void main() {
 
     await tester.tapButton('option');
     expect(wasPressed, testState.isEnabled ? 1 : 0);
+
+    await tester.tapButton(find.text('option'));
+    expect(wasPressed, testState.isEnabled ? 2 : 0);
   }, variant: stateVariant);
 
   testWidgets('outlined button', (tester) async {
@@ -156,6 +165,9 @@ void main() {
 
     await tester.tapButton('outlined');
     expect(wasPressed, testState.isEnabled ? 1 : 0);
+
+    await tester.tapButton(find.text('outlined'));
+    expect(wasPressed, testState.isEnabled ? 2 : 0);
   }, variant: stateVariant);
 
   testWidgets('text button', (tester) async {
@@ -183,5 +195,8 @@ void main() {
 
     await tester.tapButton('text');
     expect(wasPressed, testState.isEnabled ? 1 : 0);
+
+    await tester.tapButton(find.text('text'));
+    expect(wasPressed, testState.isEnabled ? 2 : 0);
   }, variant: stateVariant);
 }

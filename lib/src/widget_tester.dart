@@ -8,10 +8,10 @@ import 'custom_matchers.dart';
 /// Convenient high-level widget tester extensions for buttons and alike.
 extension YaruWidgetTester on WidgetTester {
   /// Taps a button specified by its [text].
-  Future<void> tapButton(String text) => tap(find.button(text));
+  Future<void> tapButton(dynamic text) => tap(find.button(text));
 
   /// Taps a link with the given [label].
-  Future<void> tapLink(String label) async {
+  Future<void> tapLink(dynamic label) async {
     expect(find.byWidgetPredicate((widget) {
       if (widget is RichText) {
         final link = widget.findLink(label);
@@ -28,7 +28,7 @@ extension YaruWidgetTester on WidgetTester {
   Future<void> tapRadio<T>(T value) => tap(find.radio(value));
 
   /// Toggles a button specified by its [text] to ensure the given [value].
-  Future<void> toggleButton(String text, bool value) async {
+  Future<void> toggleButton(dynamic text, bool value) async {
     final finder = find.toggleButton(text);
     if (isChecked.matches(finder, {}) != value) {
       return tap(finder);
