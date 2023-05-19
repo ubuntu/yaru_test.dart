@@ -7,11 +7,14 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 /// Convenient high-level common finder extensions for buttons and alike.
 extension YaruCommonFinders on CommonFinders {
   /// Finds [Image] by [assetName].
-  Finder asset(String assetName) {
-    return byWidgetPredicate((w) =>
-        w is Image &&
-        w.image is AssetImage &&
-        (w.image as AssetImage).assetName.endsWith(assetName));
+  Finder asset(String assetName, {bool skipOffstage = true}) {
+    return byWidgetPredicate(
+      (w) =>
+          w is Image &&
+          w.image is AssetImage &&
+          (w.image as AssetImage).assetName.endsWith(assetName),
+      skipOffstage: skipOffstage,
+    );
   }
 
   /// Finds any [ButtonStyleButton] by [text].
@@ -31,8 +34,11 @@ extension YaruCommonFinders on CommonFinders {
   }
 
   /// Finds [Html] by [data].
-  Finder html(String data) {
-    return byWidgetPredicate((w) => w is Html && w.data == data);
+  Finder html(dynamic data, {bool skipOffstage = true}) {
+    return byWidgetPredicate(
+      (w) => w is Html && w.data == data,
+      skipOffstage: skipOffstage,
+    );
   }
 
   /// Finds [ButtonStyleButton] by [icon].
@@ -78,11 +84,14 @@ extension YaruCommonFinders on CommonFinders {
   }
 
   /// Finds [SvgPicture] by [assetName].
-  Finder svg(String assetName) {
-    return byWidgetPredicate((w) =>
-        w is SvgPicture &&
-        w.bytesLoader is SvgAssetLoader &&
-        (w.bytesLoader as SvgAssetLoader).assetName.endsWith(assetName));
+  Finder svg(String assetName, {bool skipOffstage = true}) {
+    return byWidgetPredicate(
+      (w) =>
+          w is SvgPicture &&
+          w.bytesLoader is SvgAssetLoader &&
+          (w.bytesLoader as SvgAssetLoader).assetName.endsWith(assetName),
+      skipOffstage: skipOffstage,
+    );
   }
 
   /// Finds [YaruSwitchButton] by [text].
