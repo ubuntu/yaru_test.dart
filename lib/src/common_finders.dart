@@ -1,22 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 /// Convenient high-level common finder extensions for buttons and alike.
 extension YaruCommonFinders on CommonFinders {
-  /// Finds [Image] by [assetName].
-  Finder asset(String assetName, {bool skipOffstage = true}) {
-    return byWidgetPredicate(
-      (w) =>
-          w is Image &&
-          w.image is AssetImage &&
-          (w.image as AssetImage).assetName.endsWith(assetName),
-      skipOffstage: skipOffstage,
-    );
-  }
-
   /// Finds any [ButtonStyleButton] by [text].
   Finder button(dynamic text, {bool skipOffstage = true}) {
     return ancestor(
@@ -30,14 +17,6 @@ extension YaruCommonFinders on CommonFinders {
     return ancestor(
       of: _textOrFinder(text, skipOffstage),
       matching: byType(YaruCheckButton, skipOffstage: skipOffstage),
-    );
-  }
-
-  /// Finds [Html] by [data].
-  Finder html(String data, {bool skipOffstage = true}) {
-    return byWidgetPredicate(
-      (w) => w is Html && w.data == data,
-      skipOffstage: skipOffstage,
     );
   }
 
@@ -80,17 +59,6 @@ extension YaruCommonFinders on CommonFinders {
     return ancestor(
       of: _textOrFinder(text, skipOffstage),
       matching: byType(YaruRadioButton<T>, skipOffstage: skipOffstage),
-    );
-  }
-
-  /// Finds [SvgPicture] by [assetName].
-  Finder svg(String assetName, {bool skipOffstage = true}) {
-    return byWidgetPredicate(
-      (w) =>
-          w is SvgPicture &&
-          w.bytesLoader is SvgAssetLoader &&
-          (w.bytesLoader as SvgAssetLoader).assetName.endsWith(assetName),
-      skipOffstage: skipOffstage,
     );
   }
 
