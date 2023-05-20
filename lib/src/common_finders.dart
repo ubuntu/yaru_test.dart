@@ -34,7 +34,7 @@ extension YaruCommonFinders on CommonFinders {
   }
 
   /// Finds [Html] by [data].
-  Finder html(dynamic data, {bool skipOffstage = true}) {
+  Finder html(String data, {bool skipOffstage = true}) {
     return byWidgetPredicate(
       (w) => w is Html && w.data == data,
       skipOffstage: skipOffstage,
