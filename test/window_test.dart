@@ -24,7 +24,7 @@ void main() {
     );
     when(platform.state(0)).thenAnswer((_) async => testState);
 
-    await YaruTestWindow.ensureInitialized();
+    await YaruTestWindow.ensureInitialized(environment: {});
     expect(YaruWindowPlatform.instance, isA<YaruTestWindow>());
 
     final window = await YaruWindow.ensureInitialized();
