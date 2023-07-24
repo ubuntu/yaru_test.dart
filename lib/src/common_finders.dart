@@ -78,6 +78,14 @@ extension YaruCommonFinders on CommonFinders {
     );
   }
 
+  /// Finds [YaruTitleBar] by [text].
+  Finder titleBar(dynamic text, {bool skipOffstage = true}) {
+    return ancestor(
+      of: _textOrFinder(text, skipOffstage),
+      matching: byType(YaruTitleBar, skipOffstage: skipOffstage),
+    );
+  }
+
   /// Finds [YaruToggleButton] by [text].
   Finder toggleButton(dynamic text, {bool skipOffstage = true}) {
     return ancestor(
