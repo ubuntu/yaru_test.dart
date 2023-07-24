@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3 (2023-07-24)
+
+## What's Changed
+* ci: reuse pr title & release actions from ufc/actions by @jpnurmi in https://github.com/ubuntu/yaru_test.dart/pull/22
+* feat: add find.titleBar() by @jpnurmi in https://github.com/ubuntu/yaru_test.dart/pull/24
+
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.1.2...v0.1.3
+
 ## 0.1.2 (2023-06-29)
 
 ## What's Changed
