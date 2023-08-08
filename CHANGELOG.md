@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.4 (2023-08-08)
+
+## What's Changed
+* chore(deps): relax yaru version constraint by @jpnurmi in https://github.com/ubuntu/yaru_test.dart/pull/26
+
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.1.3...v0.1.4
+
 ## 0.1.3 (2023-07-24)
 
 ## What's Changed
