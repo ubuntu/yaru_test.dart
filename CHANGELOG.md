@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.5 (2023-10-17)
+
+## What's Changed
+* chore(deps) Update Flutter 3.13 & Yaru by @CarlosNihelton in https://github.com/ubuntu/yaru_test.dart/pull/31
+
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.1.4...v0.1.5
+
 ## 0.1.4 (2023-08-08)
 
 ## What's Changed
