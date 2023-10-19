@@ -18,6 +18,6 @@ dependencies:
   yaru_window_platform_interface: ^0.1.0
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
+  flutter_lints: ">=2.0.0 <4.0.0"
   mockito: ^5.4.0
   plugin_platform_interface: ^2.1.4
