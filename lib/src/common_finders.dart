@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/widgets.dart';
 
 /// Convenient high-level common finder extensions for buttons and alike.
 extension YaruCommonFinders on CommonFinders {
