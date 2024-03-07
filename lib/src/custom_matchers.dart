@@ -33,7 +33,7 @@ class _IsCheckedMatcher extends CustomMatcher {
     final togglables = find
         .descendant(
             of: finder,
-            matching: find.bySubtype<YaruTogglable<Object>>(),
+            matching: find.bySubtype<YaruTogglable<Object?>>(),
             matchRoot: true)
         .evaluate()
         .map((e) => e.widget as YaruTogglable);
@@ -55,7 +55,7 @@ class _IsEnabledMatcher extends CustomMatcher {
     final togglables = find
         .descendant(
             of: finder,
-            matching: find.bySubtype<YaruTogglable<Object>>(),
+            matching: find.bySubtype<YaruTogglable<Object?>>(),
             matchRoot: true)
         .evaluate()
         .map((e) => e.widget as YaruTogglable);
