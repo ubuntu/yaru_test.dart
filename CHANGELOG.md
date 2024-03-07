@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.6 (2024-03-07)
+
+## What's Changed
+* fix: Migrate to yaru 4.0.0 by @spydon in https://github.com/ubuntu/yaru_test.dart/pull/36
+
+## New Contributors
+* @spydon made their first contribution in https://github.com/ubuntu/yaru_test.dart/pull/36
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.1.5...v0.1.6
+
 ## 0.1.5 (2023-10-17)
 
 ## What's Changed
