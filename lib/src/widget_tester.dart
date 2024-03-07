@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'common_finders.dart';
-import 'custom_matchers.dart';
+import 'package:yaru_test/src/common_finders.dart';
+import 'package:yaru_test/src/custom_matchers.dart';
 
 /// Convenient high-level widget tester extensions for buttons and alike.
 extension YaruWidgetTester on WidgetTester {
