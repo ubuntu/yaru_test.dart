@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 // TODO: expose YaruTogglable for testing
-import 'package:yaru_widgets/src/widgets/yaru_togglable.dart'; // ignore: implementation_imports
+import 'package:yaru/src/widgets/yaru_togglable.dart'; // ignore: implementation_imports
 
 /// Matches a focused (focusable) widget.
 final hasFocus = _HasFocusMatcher(true);
@@ -33,7 +33,7 @@ class _IsCheckedMatcher extends CustomMatcher {
     final togglables = find
         .descendant(
             of: finder,
-            matching: find.bySubtype<YaruTogglable>(),
+            matching: find.bySubtype<YaruTogglable<Object?>>(),
             matchRoot: true)
         .evaluate()
         .map((e) => e.widget as YaruTogglable);
@@ -55,7 +55,7 @@ class _IsEnabledMatcher extends CustomMatcher {
     final togglables = find
         .descendant(
             of: finder,
-            matching: find.bySubtype<YaruTogglable>(),
+            matching: find.bySubtype<YaruTogglable<Object?>>(),
             matchRoot: true)
         .evaluate()
         .map((e) => e.widget as YaruTogglable);
@@ -82,6 +82,6 @@ class _HasFocusMatcher extends CustomMatcher {
         .descendant(of: finder, matching: find.byType(Focus), matchRoot: true)
         .evaluate()
         .map((e) => e.widget as Focus);
-    return focusables.any((f) => f.focusNode?.hasFocus == true);
+    return focusables.any((f) => f.focusNode?.hasFocus ?? false);
   }
 }
