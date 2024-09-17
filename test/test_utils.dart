@@ -6,14 +6,14 @@ class MaterialTestState {
   const MaterialTestState(this.name, this.states);
 
   final String name;
-  final Set<MaterialState?> states;
+  final Set<WidgetState?> states;
 
-  bool get hasFocus => states.contains(MaterialState.focused);
+  bool get hasFocus => states.contains(WidgetState.focused);
   bool get isChecked =>
-      states.contains(MaterialState.selected) && !states.contains(null);
-  bool get isEnabled => !states.contains(MaterialState.disabled);
+      states.contains(WidgetState.selected) && !states.contains(null);
+  bool get isEnabled => !states.contains(WidgetState.disabled);
   bool get isPartiallyChecked =>
-      states.contains(MaterialState.selected) && states.contains(null);
+      states.contains(WidgetState.selected) && states.contains(null);
 
   @override
   String toString() => name;
@@ -21,19 +21,19 @@ class MaterialTestState {
 
 final stateVariant = ValueVariant(const {
   MaterialTestState('default', {}),
-  MaterialTestState('disabled', {MaterialState.disabled}),
-  MaterialTestState('focused', {MaterialState.focused}),
+  MaterialTestState('disabled', {WidgetState.disabled}),
+  MaterialTestState('focused', {WidgetState.focused}),
 });
 
 final togglableStateVariant = ValueVariant({
   ...stateVariant.values,
   const MaterialTestState('unchecked', {}),
-  const MaterialTestState('checked', {MaterialState.selected}),
+  const MaterialTestState('checked', {WidgetState.selected}),
 });
 
 final partiallyTogglableStateVariant = ValueVariant({
   ...togglableStateVariant.values,
-  const MaterialTestState('partial', {null, MaterialState.selected}),
+  const MaterialTestState('partial', {null, WidgetState.selected}),
 });
 
 extension WidgetTesterX on WidgetTester {
