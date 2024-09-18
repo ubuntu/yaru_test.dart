@@ -32,9 +32,10 @@ class _IsCheckedMatcher extends CustomMatcher {
   Object? featureValueOf(covariant Finder finder) {
     final togglables = find
         .descendant(
-            of: finder,
-            matching: find.bySubtype<YaruTogglable<Object?>>(),
-            matchRoot: true,)
+          of: finder,
+          matching: find.bySubtype<YaruTogglable<Object?>>(),
+          matchRoot: true,
+        )
         .evaluate()
         .map((e) => e.widget as YaruTogglable);
     return togglables.single.checked;
@@ -49,21 +50,26 @@ class _IsEnabledMatcher extends CustomMatcher {
   Object featureValueOf(covariant Finder finder) {
     final editables = find
         .descendant(
-            of: finder, matching: find.byType(TextField), matchRoot: true,)
+          of: finder,
+          matching: find.byType(TextField),
+          matchRoot: true,
+        )
         .evaluate()
         .map((e) => e.widget as TextField);
     final togglables = find
         .descendant(
-            of: finder,
-            matching: find.bySubtype<YaruTogglable<Object?>>(),
-            matchRoot: true,)
+          of: finder,
+          matching: find.bySubtype<YaruTogglable<Object?>>(),
+          matchRoot: true,
+        )
         .evaluate()
         .map((e) => e.widget as YaruTogglable);
     final tappables = find
         .descendant(
-            of: finder,
-            matching: find.bySubtype<InkResponse>(),
-            matchRoot: true,)
+          of: finder,
+          matching: find.bySubtype<InkResponse>(),
+          matchRoot: true,
+        )
         .evaluate()
         .map((e) => e.widget as InkResponse);
     return !editables.any((e) => e.enabled == false) &&

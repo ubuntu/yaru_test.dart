@@ -7,15 +7,17 @@ import 'test_utils.dart';
 
 void main() {
   testWidgets('find title bar', (tester) async {
-    await tester.pumpTestApp(YaruTitleBar(
-      title: const Text('title bar'),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.add),
-          onPressed: () {},
-        ),
-      ],
-    ),);
+    await tester.pumpTestApp(
+      YaruTitleBar(
+        title: const Text('title bar'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
 
     expect(find.titleBar('title bar'), findsOneWidget);
     expect(find.titleBar(find.text('title bar')), findsOneWidget);

@@ -5,28 +5,34 @@ import 'package:yaru_test/yaru_test.dart';
 import 'test_utils.dart';
 
 void main() {
-  testWidgets('list tile', (tester) async {
-    final testState = stateVariant.currentValue!;
+  testWidgets(
+    'list tile',
+    (tester) async {
+      final testState = stateVariant.currentValue!;
 
-    final focusNode = FocusNode();
-    if (testState.hasFocus) {
-      focusNode.requestFocus();
-    }
-    addTearDown(focusNode.dispose);
+      final focusNode = FocusNode();
+      if (testState.hasFocus) {
+        focusNode.requestFocus();
+      }
+      addTearDown(focusNode.dispose);
 
-    await tester.pumpTestApp(ListTile(
-      focusNode: focusNode,
-      onTap: testState.isEnabled ? () {} : null,
-      title: const Text('list tile'),
-    ),);
-    await tester.pump();
+      await tester.pumpTestApp(
+        ListTile(
+          focusNode: focusNode,
+          onTap: testState.isEnabled ? () {} : null,
+          title: const Text('list tile'),
+        ),
+      );
+      await tester.pump();
 
-    expect(find.listTile('list tile'), findsOneWidget);
-    expect(find.listTile(find.text('list tile')), findsOneWidget);
+      expect(find.listTile('list tile'), findsOneWidget);
+      expect(find.listTile(find.text('list tile')), findsOneWidget);
 
-    final listTile = find.listTile('list tile');
-    expect(listTile, findsOneWidget);
-    expect(listTile, testState.hasFocus ? hasFocus : hasNoFocus);
-    expect(listTile, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: stateVariant,);
+      final listTile = find.listTile('list tile');
+      expect(listTile, findsOneWidget);
+      expect(listTile, testState.hasFocus ? hasFocus : hasNoFocus);
+      expect(listTile, testState.isEnabled ? isEnabled : isDisabled);
+    },
+    variant: stateVariant,
+  );
 }
