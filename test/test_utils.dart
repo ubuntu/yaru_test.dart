@@ -38,9 +38,11 @@ final partiallyTogglableStateVariant = ValueVariant({
 
 extension WidgetTesterX on WidgetTester {
   Future<void> pumpTestApp(Widget widget) {
-    return pumpWidget(MaterialApp(
-      theme: yaruLight,
-      home: Material(child: widget),
-    ));
+    return pumpWidget(
+      MaterialApp(
+        theme: yaruLight,
+        home: Material(child: widget),
+      ),
+    );
   }
 }
