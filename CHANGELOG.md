@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 (2024-09-18)
+
+## What's Changed
+* feat: bump yaru version to ^5.0.0 by @d-loose in https://github.com/ubuntu/yaru_test.dart/pull/41
+* chore: Release yaru_test 0.2.0 by @spydon in https://github.com/ubuntu/yaru_test.dart/pull/43
+
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.1.6...v0.2.0
+
 ## 0.2.0 (2024-09-17)
 
 ## What's Changed
