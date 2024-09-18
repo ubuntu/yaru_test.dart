@@ -15,7 +15,7 @@ void main() {
           onPressed: () {},
         ),
       ],
-    ));
+    ),);
 
     expect(find.titleBar('title bar'), findsOneWidget);
     expect(find.titleBar(find.text('title bar')), findsOneWidget);

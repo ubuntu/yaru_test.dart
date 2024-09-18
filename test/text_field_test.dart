@@ -12,7 +12,7 @@ void main() {
         hintText: 'hint text',
         labelText: 'label text',
       ),
-    ));
+    ),);
 
     expect(find.textField('text field'), findsOneWidget);
     expect(find.textField('hint text'), findsOneWidget);
@@ -31,11 +31,11 @@ void main() {
       autofocus: testState.hasFocus,
       enabled: testState.isEnabled,
       initialValue: 'text field',
-    ));
+    ),);
     await tester.pump();
 
     final textField = find.textField('text field');
     expect(textField, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(textField, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 }

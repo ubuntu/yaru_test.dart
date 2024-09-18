@@ -25,7 +25,7 @@ void main() {
       tristate: testState.isPartiallyChecked,
       onChanged: testState.isEnabled ? (value) {} : null,
       title: const Text('check button'),
-    ));
+    ),);
     await tester.pump();
 
     expect(find.checkButton('check button'), findsOneWidget);
@@ -41,8 +41,8 @@ void main() {
             ? isChecked
             : testState.isPartiallyChecked
                 ? isPartiallyChecked
-                : isNotChecked);
-  }, variant: partiallyTogglableStateVariant);
+                : isNotChecked,);
+  }, variant: partiallyTogglableStateVariant,);
 
   testWidgets('radio button', (tester) async {
     final testState = togglableStateVariant.currentValue!;
@@ -61,20 +61,20 @@ void main() {
       groupValue: Brightness.light,
       onChanged: testState.isEnabled ? (value) {} : null,
       title: const Text('radio button'),
-    ));
+    ),);
     await tester.pump();
 
     expect(find.radio<Brightness>(value), findsOneWidget);
     expect(find.radioButton<Brightness>('radio button'), findsOneWidget);
     expect(find.radioButton<Brightness>(find.text('radio button')),
-        findsOneWidget);
+        findsOneWidget,);
 
     final radioButton = find.radioButton<Brightness>('radio button');
     expect(radioButton, findsOneWidget);
     expect(radioButton, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(radioButton, testState.isChecked ? isChecked : isNotChecked);
     expect(radioButton, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: togglableStateVariant);
+  }, variant: togglableStateVariant,);
 
   testWidgets('switch button', (tester) async {
     final testState = togglableStateVariant.currentValue!;
@@ -90,7 +90,7 @@ void main() {
       value: testState.isChecked,
       onChanged: testState.isEnabled ? (value) {} : null,
       title: const Text('switch button'),
-    ));
+    ),);
     await tester.pump();
 
     expect(find.switchButton('switch button'), findsOneWidget);
@@ -101,7 +101,7 @@ void main() {
     expect(switchButton, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(switchButton, testState.isChecked ? isChecked : isNotChecked);
     expect(switchButton, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: togglableStateVariant);
+  }, variant: togglableStateVariant,);
 
   testWidgets('toggle', (tester) async {
     final values = [false, false, false];
@@ -127,7 +127,7 @@ void main() {
           ),
         ],
       );
-    }));
+    },),);
     await tester.pump();
 
     final checkButton = find.checkButton('check button');

@@ -18,7 +18,7 @@ void main() {
       focusNode: focusNode,
       onTap: testState.isEnabled ? () {} : null,
       title: const Text('list tile'),
-    ));
+    ),);
     await tester.pump();
 
     expect(find.listTile('list tile'), findsOneWidget);
@@ -28,5 +28,5 @@ void main() {
     expect(listTile, findsOneWidget);
     expect(listTile, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(listTile, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 }

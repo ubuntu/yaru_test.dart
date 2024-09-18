@@ -18,7 +18,7 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () {} : null,
       child: const Text('menu item'),
-    ));
+    ),);
     await tester.pump();
 
     expect(find.menuItem('menu item'), findsOneWidget);
@@ -28,5 +28,5 @@ void main() {
     expect(menuItem, findsOneWidget);
     expect(menuItem, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(menuItem, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 }

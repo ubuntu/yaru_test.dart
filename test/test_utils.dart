@@ -41,6 +41,6 @@ extension WidgetTesterX on WidgetTester {
     return pumpWidget(MaterialApp(
       theme: yaruLight,
       home: Material(child: widget),
-    ));
+    ),);
   }
 }

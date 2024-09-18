@@ -21,7 +21,7 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('elevated'),
-    ));
+    ),);
     await tester.pump();
 
     final button = find.button('elevated');
@@ -34,7 +34,7 @@ void main() {
 
     await tester.tapButton(find.text('elevated'));
     expect(wasPressed, testState.isEnabled ? 2 : 0);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 
   testWidgets('filled button', (tester) async {
     final testState = stateVariant.currentValue!;
@@ -51,7 +51,7 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('filled'),
-    ));
+    ),);
     await tester.pump();
 
     final button = find.button('filled');
@@ -64,7 +64,7 @@ void main() {
 
     await tester.tapButton(find.text('filled'));
     expect(wasPressed, testState.isEnabled ? 2 : 0);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 
   testWidgets('icon button', (tester) async {
     final testState = stateVariant.currentValue!;
@@ -79,14 +79,14 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () {} : null,
       icon: const Icon(Icons.abc),
-    ));
+    ),);
     await tester.pump();
 
     final iconButton = find.iconButton(Icons.abc);
     expect(iconButton, findsOneWidget);
     expect(iconButton, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(iconButton, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 
   testWidgets('menu item', (tester) async {
     final testState = stateVariant.currentValue!;
@@ -101,14 +101,14 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () {} : null,
       child: const Text('menu item'),
-    ));
+    ),);
     await tester.pump();
 
     final button = find.button('menu item');
     expect(button, findsOneWidget);
     expect(button, testState.hasFocus ? hasFocus : hasNoFocus);
     expect(button, testState.isEnabled ? isEnabled : isDisabled);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 
   testWidgets('option button', (tester) async {
     final testState = stateVariant.currentValue!;
@@ -125,7 +125,7 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('option'),
-    ));
+    ),);
     await tester.pump();
 
     final button = find.button('option');
@@ -138,7 +138,7 @@ void main() {
 
     await tester.tapButton(find.text('option'));
     expect(wasPressed, testState.isEnabled ? 2 : 0);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 
   testWidgets('outlined button', (tester) async {
     final testState = stateVariant.currentValue!;
@@ -155,7 +155,7 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('outlined'),
-    ));
+    ),);
     await tester.pump();
 
     final button = find.button('outlined');
@@ -168,7 +168,7 @@ void main() {
 
     await tester.tapButton(find.text('outlined'));
     expect(wasPressed, testState.isEnabled ? 2 : 0);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 
   testWidgets('text button', (tester) async {
     final testState = stateVariant.currentValue!;
@@ -185,7 +185,7 @@ void main() {
       focusNode: focusNode,
       onPressed: testState.isEnabled ? () => ++wasPressed : null,
       child: const Text('text'),
-    ));
+    ),);
     await tester.pump();
 
     final button = find.button('text');
@@ -198,5 +198,5 @@ void main() {
 
     await tester.tapButton(find.text('text'));
     expect(wasPressed, testState.isEnabled ? 2 : 0);
-  }, variant: stateVariant);
+  }, variant: stateVariant,);
 }
