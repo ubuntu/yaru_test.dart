@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1 (2025-04-09)
+
+## What's Changed
+* chore(deps): bump yaru from 6.0.0 to 7.0.0 by @dependabot in https://github.com/ubuntu/yaru_test.dart/pull/49
+* chore: Update Flutter version to 3.29 by @ashuntu in https://github.com/ubuntu/yaru_test.dart/pull/50
+
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.3.0...v0.3.1
+
 ## 0.3.0 (2024-12-19)
 
 ## What's Changed
