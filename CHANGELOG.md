@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2 (2025-06-06)
+
+## What's Changed
+* chore(deps): bump yaru from 7.0.0 to 8.0.0 by @dependabot in https://github.com/ubuntu/yaru_test.dart/pull/52
+
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.3.1...v0.3.2
+
 ## 0.3.1 (2025-04-09)
 
 ## What's Changed
