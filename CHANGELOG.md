@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.4 (2026-03-11)
+
+## What's Changed
+* chore(deps): bump Yaru to up to 10.x.x by @ashuntu in https://github.com/ubuntu/yaru_test.dart/pull/56
+
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.3.3...v0.3.4
+
 ## 0.3.3 (2025-12-01)
 
 ## What's Changed
