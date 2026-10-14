@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.5 (2026-10-14)
+
+## What's Changed
+* chore(deps): bump Yaru to up to 11.x.x by @paul-geoghegan in https://github.com/ubuntu/yaru_test.dart/pull/59
+
+## New Contributors
+* @paul-geoghegan made their first contribution in https://github.com/ubuntu/yaru_test.dart/pull/59
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.3.4...v0.3.5
+
 ## 0.3.4 (2026-03-11)
 
 ## What's Changed
