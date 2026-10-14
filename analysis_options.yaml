@@ -1,5 +1,7 @@
 include: package:ubuntu_lints/analysis_options.yaml
 
 analyzer:
+  exclude:
+    - build/**
   language:
     strict-casts: false
