@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 // TODO: expose YaruTogglable for testing
 import 'package:yaru/src/widgets/yaru_togglable.dart'; // ignore: implementation_imports
