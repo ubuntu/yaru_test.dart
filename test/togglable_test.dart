@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:yaru/widgets.dart';
 import 'package:yaru_test/yaru_test.dart';
 
@@ -23,8 +23,8 @@ void main() {
           value: testState.isChecked
               ? true
               : testState.isPartiallyChecked
-                  ? null
-                  : false,
+              ? null
+              : false,
           tristate: testState.isPartiallyChecked,
           onChanged: testState.isEnabled ? (value) {} : null,
           title: const Text('check button'),
@@ -44,8 +44,8 @@ void main() {
         testState.isChecked
             ? isChecked
             : testState.isPartiallyChecked
-                ? isPartiallyChecked
-                : isNotChecked,
+            ? isPartiallyChecked
+            : isNotChecked,
       );
     },
     variant: partiallyTogglableStateVariant,

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:material_ui/material_ui.dart';
 // TODO: expose YaruTogglable for testing
 import 'package:yaru/src/widgets/yaru_togglable.dart'; // ignore: implementation_imports
 
@@ -26,7 +26,7 @@ final isPartiallyChecked = _IsCheckedMatcher(null);
 
 class _IsCheckedMatcher extends CustomMatcher {
   _IsCheckedMatcher(bool? value)
-      : super('Togglable widget is checked', 'checked', equals(value));
+    : super('Togglable widget is checked', 'checked', equals(value));
 
   @override
   Object? featureValueOf(covariant Finder finder) {
@@ -44,7 +44,7 @@ class _IsCheckedMatcher extends CustomMatcher {
 
 class _IsEnabledMatcher extends CustomMatcher {
   _IsEnabledMatcher(bool value)
-      : super('Widget is enabled', 'enabled', equals(value));
+    : super('Widget is enabled', 'enabled', equals(value));
 
   @override
   Object featureValueOf(covariant Finder finder) {
@@ -80,7 +80,7 @@ class _IsEnabledMatcher extends CustomMatcher {
 
 class _HasFocusMatcher extends CustomMatcher {
   _HasFocusMatcher(bool value)
-      : super('Widget has focus', 'focus', equals(value));
+    : super('Widget has focus', 'focus', equals(value));
 
   @override
   Object featureValueOf(covariant Finder finder) {
