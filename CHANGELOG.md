@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0 (2026-11-17)
+
+## What's Changed
+* feat!: migrate to standalone Material UI by @SoumyaRanjanPatnaik in https://github.com/ubuntu/yaru_test.dart/pull/61
+
+## New Contributors
+* @SoumyaRanjanPatnaik made their first contribution in https://github.com/ubuntu/yaru_test.dart/pull/61
+
+**Full Changelog**: https://github.com/ubuntu/yaru_test.dart/compare/v0.3.5...v1.0.0
+
 ## 0.3.5 (2026-10-14)
 
 ## What's Changed
