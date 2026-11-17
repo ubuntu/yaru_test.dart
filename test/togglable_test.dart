@@ -23,8 +23,8 @@ void main() {
           value: testState.isChecked
               ? true
               : testState.isPartiallyChecked
-                  ? null
-                  : false,
+              ? null
+              : false,
           tristate: testState.isPartiallyChecked,
           onChanged: testState.isEnabled ? (value) {} : null,
           title: const Text('check button'),
@@ -44,8 +44,8 @@ void main() {
         testState.isChecked
             ? isChecked
             : testState.isPartiallyChecked
-                ? isPartiallyChecked
-                : isNotChecked,
+            ? isPartiallyChecked
+            : isNotChecked,
       );
     },
     variant: partiallyTogglableStateVariant,
